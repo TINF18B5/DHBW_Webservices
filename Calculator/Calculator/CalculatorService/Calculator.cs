@@ -1,4 +1,6 @@
-﻿namespace CalculatorService
+﻿using System;
+
+namespace CalculatorService
 {
     public class Calculator : ICalculator
     {
