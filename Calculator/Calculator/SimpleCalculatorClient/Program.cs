@@ -1,5 +1,6 @@
 ﻿using System;
-using SimpleCalculatorClient.CalculatorServiceReference;
+using System.ServiceModel;
+using SimpleCalculatorClient.ServiceReference1;
 
 namespace SimpleCalculatorClient
 {
@@ -7,16 +8,25 @@ namespace SimpleCalculatorClient
     {
         static void Main(string[] args)
         {
-            var client = new CalculatorClient();
-
-            var argument = new Argument
+            var client = new CalculatorClient("NetTcpBinding_ICalculator");
+            try
             {
-                Arg1 = 36,
-                Arg2 = 6
-            };
-            var result = client.Add(argument);
-            string msg = $"{argument.Arg1} + {argument.Arg2} = {result.Value}";
-            Console.WriteLine(msg);
+                var argument = new Argument
+                {
+                    Arg1 = 36,
+                    Arg2 = 6
+                };
+                var result = client.Add(argument);
+                string msg = $"{argument.Arg1} + {argument.Arg2} = {result.Value}";
+                Console.WriteLine(msg);
+                client.Close();
+            }
+            catch (Exception e)
+            {
+                client.Abort();
+                Console.WriteLine(e.Message);
+            }
+
 
             Console.ReadLine();
         }

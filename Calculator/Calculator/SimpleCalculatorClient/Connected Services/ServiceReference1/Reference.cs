@@ -8,24 +8,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SimpleCalculatorClient.CalculatorServiceReference {
+namespace SimpleCalculatorClient.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="Argument", Namespace="http://schemas.datacontract.org/2004/07/CalculatorService")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Argument", Namespace="http://schemas.datacontract.org/2004/07/CalculatorService")]
+    [System.SerializableAttribute()]
     public partial class Argument : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Arg1Field;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double Arg2Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -38,7 +38,7 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double Arg1 {
             get {
                 return this.Arg1Field;
@@ -51,7 +51,7 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double Arg2 {
             get {
                 return this.Arg2Field;
@@ -76,14 +76,14 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [DataContract(Name="Result", Namespace="http://schemas.datacontract.org/2004/07/CalculatorService")]
-    [Serializable()]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Result", Namespace="http://schemas.datacontract.org/2004/07/CalculatorService")]
+    [System.SerializableAttribute()]
     public partial class Result : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [NonSerialized()]
+        [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [OptionalField()]
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double ValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -96,7 +96,7 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
             }
         }
         
-        [DataMember()]
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public double Value {
             get {
                 return this.ValueField;
@@ -124,19 +124,19 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
     public interface ICalculator {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Add", ReplyAction="http://tempuri.org/ICalculator/AddResponse")]
-        Result Add(Argument args);
+        SimpleCalculatorClient.ServiceReference1.Result Add(SimpleCalculatorClient.ServiceReference1.Argument args);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Add", ReplyAction="http://tempuri.org/ICalculator/AddResponse")]
-        System.Threading.Tasks.Task<Result> AddAsync(Argument args);
+        System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> AddAsync(SimpleCalculatorClient.ServiceReference1.Argument args);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ICalculatorChannel : ICalculator, System.ServiceModel.IClientChannel {
+    public interface ICalculatorChannel : SimpleCalculatorClient.ServiceReference1.ICalculator, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CalculatorClient : System.ServiceModel.ClientBase<ICalculator>, ICalculator {
+    public partial class CalculatorClient : System.ServiceModel.ClientBase<SimpleCalculatorClient.ServiceReference1.ICalculator>, SimpleCalculatorClient.ServiceReference1.ICalculator {
         
         public CalculatorClient() {
         }
@@ -157,11 +157,11 @@ namespace SimpleCalculatorClient.CalculatorServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public Result Add(Argument args) {
+        public SimpleCalculatorClient.ServiceReference1.Result Add(SimpleCalculatorClient.ServiceReference1.Argument args) {
             return base.Channel.Add(args);
         }
         
-        public System.Threading.Tasks.Task<Result> AddAsync(Argument args) {
+        public System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> AddAsync(SimpleCalculatorClient.ServiceReference1.Argument args) {
             return base.Channel.AddAsync(args);
         }
     }
