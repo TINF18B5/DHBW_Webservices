@@ -8,7 +8,9 @@ namespace SimpleCalculatorClient
     {
         static void Main(string[] args)
         {
-            var client = new CalculatorClient("NetTcpBinding_ICalculator");
+            var client = new CalculatorClient("BasicHttpBinding_ICalculator");
+            client.ClientCredentials.UserName.UserName = "Hugo";
+            client.ClientCredentials.UserName.Password = "hugo";
             try
             {
                 var argument = new Argument

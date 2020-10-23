@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 
 namespace CalculatorService
 {
@@ -6,11 +7,17 @@ namespace CalculatorService
     {
         public Result Add(Argument args)
         {
-            double additionResult = args.Arg1 + args.Arg2;
-            return new Result
+            var identity = System.ServiceModel.ServiceSecurityContext.Current.PrimaryIdentity;
+            if (identity.Name == @"LUKAS_DESKTOP\Hugo")
             {
-                Value = additionResult
-            };
+                double additionResult = args.Arg1 + args.Arg2;
+                return new Result
+                {
+                    Value = additionResult
+                };
+            }
+            throw new AddressAccessDeniedException();
+
         }
     }
 }
