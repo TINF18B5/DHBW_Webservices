@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Customer.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,11 +16,41 @@ namespace Customer.Controllers
         [HttpGet]
         public IEnumerable<Model.Customer> Get()
         {
-            var customers = new List<Model.Customer>();
-            customers.Add(new Model.Customer() { Id = 1, Name = "Lukas Panni", Street = "LOL", City = "Odenheim", ZipCode = "76684" });
-            customers.Add(new Model.Customer() { Id = 2, Name = "Test Person", Street = "Straße", City = "Bruchsal", ZipCode = "76646" });
-            return customers;
+            return CustomerRepository.GetAll();
 
+        }
+        [HttpGet("{id}", Name = "CUSTOMER")]
+        public ActionResult<Model.Customer> Get(int id)
+        {
+            try
+            {
+                return new OkObjectResult(CustomerRepository.Get(id));
+            }
+            catch (Exception ex)
+            {
+                return new NotFoundResult();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Create([FromBody] Model.Customer customer)
+        {
+            int id = CustomerRepository.Add(customer);
+            return new CreatedAtRouteResult("CUSTOMER", new { Id = id }, null);
+        }
+
+        [HttpDelete("{id}", Name = "id")]
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                CustomerRepository.Delete(id);
+                return new OkResult();
+            }
+            catch (Exception ex)
+            {
+                return new NotFoundResult();
+            }
         }
     }
 }
