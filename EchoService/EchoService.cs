@@ -10,7 +10,7 @@ namespace EchoService
     {
         public EchoResult Echo(EchoArgument arg)
         {
-            throw new NotImplementedException();
+            return new EchoResult() { Value = arg.Argument + "!" };
         }
     }
 }
