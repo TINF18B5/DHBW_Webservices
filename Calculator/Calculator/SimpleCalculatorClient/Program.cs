@@ -9,8 +9,8 @@ namespace SimpleCalculatorClient
         static void Main(string[] args)
         {
             var client = new CalculatorClient("BasicHttpBinding_ICalculator");
-            client.ClientCredentials.UserName.UserName = "Hugo";
-            client.ClientCredentials.UserName.Password = "hugo";
+            //client.ClientCredentials.UserName.UserName = "Hugo";
+            //client.ClientCredentials.UserName.Password = "hugo";
             try
             {
                 var argument = new Argument
@@ -21,6 +21,16 @@ namespace SimpleCalculatorClient
                 var result = client.Add(argument);
                 string msg = $"{argument.Arg1} + {argument.Arg2} = {result.Value}";
                 Console.WriteLine(msg);
+                result = client.Subtract(argument);
+                msg = $"{argument.Arg1} - {argument.Arg2} = {result.Value}";
+                Console.WriteLine(msg);
+                result = client.Multiply(argument);
+                msg = $"{argument.Arg1} * {argument.Arg2} = {result.Value}";
+                Console.WriteLine(msg);
+                result = client.Divide(argument);
+                msg = $"{argument.Arg1} / {argument.Arg2} = {result.Value}";
+                Console.WriteLine(msg);
+
                 client.Close();
             }
             catch (Exception e)

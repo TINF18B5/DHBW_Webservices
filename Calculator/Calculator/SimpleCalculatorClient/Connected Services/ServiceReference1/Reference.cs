@@ -128,6 +128,24 @@ namespace SimpleCalculatorClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Add", ReplyAction="http://tempuri.org/ICalculator/AddResponse")]
         System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> AddAsync(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Subtract", ReplyAction="http://tempuri.org/ICalculator/SubtractResponse")]
+        SimpleCalculatorClient.ServiceReference1.Result Subtract(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Subtract", ReplyAction="http://tempuri.org/ICalculator/SubtractResponse")]
+        System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> SubtractAsync(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Multiply", ReplyAction="http://tempuri.org/ICalculator/MultiplyResponse")]
+        SimpleCalculatorClient.ServiceReference1.Result Multiply(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Multiply", ReplyAction="http://tempuri.org/ICalculator/MultiplyResponse")]
+        System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> MultiplyAsync(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Divide", ReplyAction="http://tempuri.org/ICalculator/DivideResponse")]
+        SimpleCalculatorClient.ServiceReference1.Result Divide(SimpleCalculatorClient.ServiceReference1.Argument args);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculator/Divide", ReplyAction="http://tempuri.org/ICalculator/DivideResponse")]
+        System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> DivideAsync(SimpleCalculatorClient.ServiceReference1.Argument args);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -163,6 +181,30 @@ namespace SimpleCalculatorClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> AddAsync(SimpleCalculatorClient.ServiceReference1.Argument args) {
             return base.Channel.AddAsync(args);
+        }
+        
+        public SimpleCalculatorClient.ServiceReference1.Result Subtract(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.Subtract(args);
+        }
+        
+        public System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> SubtractAsync(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.SubtractAsync(args);
+        }
+        
+        public SimpleCalculatorClient.ServiceReference1.Result Multiply(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.Multiply(args);
+        }
+        
+        public System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> MultiplyAsync(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.MultiplyAsync(args);
+        }
+        
+        public SimpleCalculatorClient.ServiceReference1.Result Divide(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.Divide(args);
+        }
+        
+        public System.Threading.Tasks.Task<SimpleCalculatorClient.ServiceReference1.Result> DivideAsync(SimpleCalculatorClient.ServiceReference1.Argument args) {
+            return base.Channel.DivideAsync(args);
         }
     }
 }
