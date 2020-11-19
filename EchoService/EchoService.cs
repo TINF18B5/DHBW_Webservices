@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 
 namespace EchoService
@@ -10,7 +11,12 @@ namespace EchoService
     {
         public EchoResult Echo(EchoArgument arg)
         {
-            return new EchoResult() { Value = arg.Argument + "!" };
+            var identity = ServiceSecurityContext.Current.PrimaryIdentity;
+            if (identity.Name == @"DESKTOP-UVKMM87\test")
+            {
+                return new EchoResult() { Value = arg.Argument + "!" };
+            }
+            throw new AddressAccessDeniedException();
         }
     }
 }

@@ -13,6 +13,8 @@ namespace EchoClient
         static void Main(string[] args)
         {
             var client = new EchoServiceClient("BasicHttpBinding_IEchoService");
+            client.ClientCredentials.UserName.UserName = "test";
+            client.ClientCredentials.UserName.Password = "test";
             try
             {
                 var argument = new EchoArgument
