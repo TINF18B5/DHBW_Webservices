@@ -36,7 +36,7 @@ namespace Customer.Controllers
         public ActionResult Create([FromBody] Model.Customer customer)
         {
             int id = CustomerRepository.Add(customer);
-            return new CreatedAtRouteResult("CUSTOMER", new { Id = id }, null);
+            return new CreatedAtRouteResult(Routes.Customer, new { Id = id }, null);
         }
 
         [HttpDelete("{id}", Name = "id")]
