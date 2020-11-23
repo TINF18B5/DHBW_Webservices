@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "CalculatorService\AuthService.csproj", "{3C5C51EF-0D94-4CBD-B6FE-ABB994860C4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5830A3BA-CC13-4F63-B7F3-FB35729BD9CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthClient", "SimpleCalculatorClient\AuthClient.csproj", "{6F02043E-BD5F-493D-8282-9444D4B5B224}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C5C51EF-0D94-4CBD-B6FE-ABB994860C4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C5C51EF-0D94-4CBD-B6FE-ABB994860C4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C5C51EF-0D94-4CBD-B6FE-ABB994860C4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C5C51EF-0D94-4CBD-B6FE-ABB994860C4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F02043E-BD5F-493D-8282-9444D4B5B224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F02043E-BD5F-493D-8282-9444D4B5B224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F02043E-BD5F-493D-8282-9444D4B5B224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F02043E-BD5F-493D-8282-9444D4B5B224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81844140-C362-4169-949B-7B64962AEB1E}
+	EndGlobalSection
+EndGlobal
