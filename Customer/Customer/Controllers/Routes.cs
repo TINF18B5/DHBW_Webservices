@@ -2,6 +2,8 @@
 {
     public static class Routes
     {
-        public static string Customer => "CUSTOMER";
+        public const string GetCustomer = "CUSTOMER";
+        public const string GetCustomers = "CUSTOMERS";
+        public const string MarkFavorite = "MARK_FAVORITE";
     }
 }

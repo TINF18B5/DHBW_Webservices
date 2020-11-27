@@ -17,7 +17,7 @@ namespace Customer.Controllers
         {
             return CustomerRepository.GetAllFavorites();
         }
-        [HttpPost]
+        [HttpPost(Name=Routes.MarkFavorite)]
         public IActionResult SetFavorite([FromBody] FavoriteCustomer favorite)
         {
             try
@@ -28,7 +28,7 @@ namespace Customer.Controllers
                 return new OkResult();
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new NotFoundResult();
             }
@@ -46,7 +46,7 @@ namespace Customer.Controllers
                 return new OkResult();
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new NotFoundResult();
             }

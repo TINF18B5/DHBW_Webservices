@@ -1,15 +1,17 @@
-﻿using Customer.Controllers;
+﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using CustomerDemo.Controllers;
+using CustomerDemo.Model;
 
-namespace Customer.Model
+namespace CustomerDemo.Models
 {
     public static class CustomerRepository
     {
-        private static readonly Dictionary<int, Customer> s_Customers = new Dictionary<int, Model.Customer>();
-
+        private static readonly Dictionary<int, Customer> s_Customers = new Dictionary<int, Customer>();
         private static readonly Dictionary<int, List<Move>> s_Moves = new Dictionary<int, List<Move>>();
-
         static CustomerRepository()
         {
             s_Customers.Add(1, new Customer
@@ -28,8 +30,7 @@ namespace Customer.Model
                 Street = "Kingsford",
                 City = "Garland",
                 ZipCode = "75044",
-                Country = "US",
-                IsFavorite = true
+                Country = "US"
             });
             s_Customers.Add(3, new Customer
             {
@@ -109,44 +110,33 @@ namespace Customer.Model
                 s_Customers.Remove(id);
             }
         }
-        public static List<Move> GetAllMoves(int customerId)
+
+
+        public static List<Move> GetAllMoves( int customerId)
         {
-            lock (s_Moves)
+            if (s_Moves.TryGetValue(customerId, out List<Move> moves))
             {
-                if (s_Moves.TryGetValue(customerId, out List<Move> moves))
-                {
-                    return moves;
-                }
-
-                return new List<Move>();
+                return moves;
             }
-        }
 
-        public static void AddMove(in int customerId, Move move)
+            return new List<Move>();
+        }
+        public static void AddMove(int customerId, Move move)
         {
-            lock (s_Moves)
+            if (s_Moves.TryGetValue(customerId, out List<Move> moves))
             {
-                if (s_Moves.TryGetValue(customerId, out List<Move> moves))
-                {
-                    move.Id = moves[^1].Id + 1;
-                    moves.Add(move);
-                }
-                else
-                {
-                    s_Moves.Add(customerId, new List<Move> { move });
-                }
+                moves.Add(move);
+            }
+            else
+            {
+                s_Moves.Add(customerId, new List<Move> {move});
             }
 
-            lock (s_Customers)
-            {
-                var customer = s_Customers[customerId];
-                customer.Street = move.Street;
-                customer.ZipCode = move.ZipCode;
-                customer.City = move.City;
-                customer.Country = move.Country;
-            }
-
+            var customer = s_Customers[customerId];
+            customer.Street = move.Street;
+            customer.ZipCode = move.ZipCode;
+            customer.City = move.City;
+            customer.Country = move.Country;
         }
-
     }
 }
